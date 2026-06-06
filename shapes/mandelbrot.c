@@ -6,7 +6,7 @@
 /*   By: amardini <amardini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 22:56:15 by amardini          #+#    #+#             */
-/*   Updated: 2026/06/05 23:03:46 by amardini         ###   ########.fr       */
+/*   Updated: 2026/06/06 06:12:39 by amardini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,36 @@
 
 void mandelbrot_design(char **argv, t_fractal *data)
 {
-    double ratio;
+	double ratio;
 
-    (void)argv;
-    ratio = (double)DIM_Z / (double)DIM_Y;
-    data->whatis = 1;
-    data->max_real = -2 + (2.6 * ratio);
-    data->min_real = -2;
-    data->max_imaginary = 1.3;
-    data->min_imaginary = -1.3;
+	(void)argv;
+	ratio = (double)DIM_Z / (double)DIM_Y;
+	data->whatis = 1;
+	data->max_real = -2 + (2.6 * ratio);
+	data->min_real = -2;
+	data->max_imaginary = 1.3;
+	data->min_imaginary = -1.3;
 }
-int mandel_cal(double coor_x, double coor_y)
+int mandel_cal(double coor_x, double coor_y, t_fractal *info)
 {
-    
+	int i;
+	double zr;
+	double zi;
+	double tmp;
+
+	zr = 0;
+	zi = 0;
+	i = 0;
+	while (info->max_iteration > i)
+	{
+		if ((zr * zr) - (zi * zi) > 4.0)
+			break;
+		tmp = (zr * zr) - (zi * zi) + coor_x;
+		zi = 2 * zr * zi + ci;
+		zr = temp;
+		i++;
+	}
+	return (i);
 }
 
 z = z^2 + c

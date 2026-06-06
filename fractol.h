@@ -6,7 +6,7 @@
 /*   By: amardini <amardini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 22:46:17 by amardini          #+#    #+#             */
-/*   Updated: 2026/06/05 22:56:33 by amardini         ###   ########.fr       */
+/*   Updated: 2026/06/06 06:09:09 by amardini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ typedef struct s_fractal
     int bpp;
     int line_len;
     int endian;
+    
+    int colour;
     
     int max_iteration;
     
@@ -48,6 +50,6 @@ double atod(char *number);
 void	distruc_error(t_fractal *info, int errors, char issue);
 void mandelbrot_design(char **argv, t_fractal *data);
 void julia_design(char **argv, t_fractal *data);
-int julia_cal(double coor_x, double coor_y, double input_x, double input_y);
-int mandel_cal(double coor_x, double coor_y);
+int julia_cal(double coor_x, double coor_y, double input_x, double input_y, t_fractal info);
+int mandel_cal(double coor_x, double coor_y, t_fractal info);
 int	create_shape(t_fractal *info);

@@ -6,7 +6,7 @@
 /*   By: amardini <amardini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 22:56:11 by amardini          #+#    #+#             */
-/*   Updated: 2026/06/05 22:49:50 by amardini         ###   ########.fr       */
+/*   Updated: 2026/06/06 06:12:44 by amardini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,25 @@ void julia_design(char **argv, t_fractal *data)
     data->julia_real = real;
 }
 
-int julia_cal(double coor_x, double coor_y, double input_x, double input_y)
+int julia_cal(double coor_x, double coor_y, double input_x, double input_y, t_fractal *info)
 {
-    
+    	int i;
+	double zr;
+	double zi;
+	double tmp;
+
+	zr = coor_x;
+	zi = coor_y;
+	i = 0;
+	while (info->max_iteration > i)
+	{
+		if ((zr * zr) - (zi * zi) > 4.0)
+			break;
+		tmp = (zr * zr) - (zi * zi) + input_x;
+		zi = 2 * zr * zi + input_y;
+		zr = temp;
+		i++;
+	}
+	return (i);
+}
 }
