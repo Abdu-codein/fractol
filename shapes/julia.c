@@ -6,7 +6,7 @@
 /*   By: amardini <amardini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 22:56:11 by amardini          #+#    #+#             */
-/*   Updated: 2026/06/06 06:12:44 by amardini         ###   ########.fr       */
+/*   Updated: 2026/06/07 18:10:01 by amardini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,8 @@ int julia_cal(double coor_x, double coor_y, double input_x, double input_y, t_fr
 			break;
 		tmp = (zr * zr) - (zi * zi) + input_x;
 		zi = 2 * zr * zi + input_y;
-		zr = temp;
+		zr = tmp;
 		i++;
 	}
 	return (i);
-}
 }

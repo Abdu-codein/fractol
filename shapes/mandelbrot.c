@@ -6,7 +6,7 @@
 /*   By: amardini <amardini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 22:56:15 by amardini          #+#    #+#             */
-/*   Updated: 2026/06/06 06:12:39 by amardini         ###   ########.fr       */
+/*   Updated: 2026/06/07 18:24:41 by amardini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,12 @@ int mandel_cal(double coor_x, double coor_y, t_fractal *info)
 	i = 0;
 	while (info->max_iteration > i)
 	{
-		if ((zr * zr) - (zi * zi) > 4.0)
+		if ((zr * zr) + (zi * zi) > 4.0)
 			break;
 		tmp = (zr * zr) - (zi * zi) + coor_x;
-		zi = 2 * zr * zi + ci;
-		zr = temp;
+		zi = 2 * zr * zi + coor_y;
+		zr = tmp;
 		i++;
 	}
 	return (i);
 }
-
-z = z^2 + c
-
-
-X.n+1 = -rx^2.n + rx.n = (r * x.n) - (r * x^2.n) = (r * x.n) * (1 - x.n)

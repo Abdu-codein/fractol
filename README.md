@@ -31,3 +31,22 @@ JULIA looks best with height -2 to 2 (4)
 usign that
 real width = height total - aspect ratio
 because juia always stays centered, we divide the real width by 2
+
+
+
+hoxking works by waiting for an input from the user in the back, there are 3 hooks (that are used)
+
+keyboard;
+int handle_key (int keycode, void *param)
+
+(to be called we do), mlx_key_hook(data.win_ptr, handle_key, &data)
+
+mouse;
+int handle_mouse(int button, int x, int y, void *param);
+
+(to be called we do), mlx_mouse_hook(data.win_ptr, handle_mouse, &data)
+
+X button;
+int handle_close(void*param);
+
+(to be called we do), mlx_hook(data.win_ptr, 17, 0, handle_close, &data)
