@@ -6,15 +6,25 @@
 /*   By: amardini <amardini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 22:47:26 by amardini          #+#    #+#             */
-/*   Updated: 2026/06/07 17:53:23 by amardini         ###   ########.fr       */
+/*   Updated: 2026/06/08 04:29:27 by amardini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "fractol.h"
+#include "fractol.h"
 
-int main(int argc, char **argv)
+static int	handle_close(void *param)
 {
-	t_fractal p;
+	t_fractal	*info;
+
+	info = (t_fractal *)param;
+	distruct_error(info, 123, z);
+	return (0);
+}
+
+int	main(int argc, char **argv)
+{
+	t_fractal	p;
+
 	user_input(argc, argv, &p);
 	window_create(&p);
 	p.max_iteration = 50;

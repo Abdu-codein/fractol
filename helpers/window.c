@@ -6,7 +6,7 @@
 /*   By: amardini <amardini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 20:24:30 by amardini          #+#    #+#             */
-/*   Updated: 2026/06/05 21:05:53 by amardini         ###   ########.fr       */
+/*   Updated: 2026/06/08 04:23:47 by amardini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	window_create(t_fractal *info)
 {
 	info->mlx = mlx_init();
 	if (!info->mlx)
-		write (1, "MLX faced an issue while creating connection, try again!\n", 57);
+		write (1, "MLX faced an issue while creating connection\n", 45);
 	info->win = mlx_new_window(info->mlx, DIM_Z, DIM_Y, "Fractol");
 	if (!info->win)
 		distruc_error(&info, 1, 'a');

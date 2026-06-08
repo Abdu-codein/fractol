@@ -3,7 +3,7 @@ CC = cc
 CFLAGS = -Wextra -Werror -Wall
 MLX_FLAGS = -Lmini -lmlx -L/usr/lib -lX11 -lXext -lm -lpthread
 MLX_DIR = minilibx-linux
-SRC = TOOOOOOOOOOOOOODOOOOOOOOOOOOOO
+SRC = drawing/colour.c drawing/rendering.c helpers/check_input.c helpers/errors.c helpers/keys.c helpers/window.c helpers/helpers.c shapes/julia.c shapes/mandelbrot.c fractol.c
 OBJ = $(SRC:.c=.o)
 MLX = $(MLX_DIR)/libmlx.a
 

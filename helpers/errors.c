@@ -6,11 +6,11 @@
 /*   By: amardini <amardini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 22:58:27 by amardini          #+#    #+#             */
-/*   Updated: 2026/06/05 21:34:06 by amardini         ###   ########.fr       */
+/*   Updated: 2026/06/08 04:33:53 by amardini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "fractol.h"
+#include "fractol.h"
 
 void	m_error(void)
 {
@@ -30,7 +30,7 @@ void	nu_error(void)
 
 void	distruc_error(t_fractal *info, int errors, char issue)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	if (errors == 123)
@@ -44,11 +44,11 @@ void	distruc_error(t_fractal *info, int errors, char issue)
 	if (errors == 1 || errors == 12 || errors == 123)
 	{
 		mlx_destroy_display(info->mlx);
-		free (info->mlx);	
+		free (info->mlx);
 	}
 	if (issue == 'a')
 		write(1, "Error: Window not created, try again\n", 37);
-	if (issue == 'a' || issue == 'b' || issue == 'c')
+	if (issue == 'a' || issue == 'b' || issue == 'c' || issue == 'z')
 		exit(1);
 	else
 		exit(0);

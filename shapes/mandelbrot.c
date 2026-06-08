@@ -6,15 +6,15 @@
 /*   By: amardini <amardini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 22:56:15 by amardini          #+#    #+#             */
-/*   Updated: 2026/06/07 18:24:41 by amardini         ###   ########.fr       */
+/*   Updated: 2026/06/08 04:30:21 by amardini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void mandelbrot_design(char **argv, t_fractal *data)
+void	mandelbrot_design(char **argv, t_fractal *data)
 {
-	double ratio;
+	double	ratio;
 
 	(void)argv;
 	ratio = (double)DIM_Z / (double)DIM_Y;
@@ -24,12 +24,13 @@ void mandelbrot_design(char **argv, t_fractal *data)
 	data->max_imaginary = 1.3;
 	data->min_imaginary = -1.3;
 }
-int mandel_cal(double coor_x, double coor_y, t_fractal *info)
+
+int	mandel_cal(double coor_x, double coor_y, t_fractal *info)
 {
-	int i;
-	double zr;
-	double zi;
-	double tmp;
+	int		i;
+	double	zr;
+	double	zi;
+	double	tmp;
 
 	zr = 0;
 	zi = 0;
@@ -37,7 +38,7 @@ int mandel_cal(double coor_x, double coor_y, t_fractal *info)
 	while (info->max_iteration > i)
 	{
 		if ((zr * zr) + (zi * zi) > 4.0)
-			break;
+			break ;
 		tmp = (zr * zr) - (zi * zi) + coor_x;
 		zi = 2 * zr * zi + coor_y;
 		zr = tmp;
