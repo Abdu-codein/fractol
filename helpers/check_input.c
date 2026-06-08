@@ -6,7 +6,7 @@
 /*   By: amardini <amardini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 23:16:15 by amardini          #+#    #+#             */
-/*   Updated: 2026/06/08 15:50:36 by amardini         ###   ########.fr       */
+/*   Updated: 2026/06/08 16:12:17 by amardini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,10 @@ void	user_input(int argc, char **argv, t_fractal *f)
 			m_error();
 		julia_design(argv, f);
 	}
-	else if (argc == 2 && (!ft_strncmp(argv[1], "burning_ship", 12) ||
-							!ft_strncmp(argv[1], "Burning_ship", 12) ||
-							!ft_strncmp(argv[1], "burning ship", 12) ||
-							!ft_strncmp(argv[1], "Burning ship", 12)))
+	else if (argc == 2 && (!ft_strncmp(argv[1], "burning_ship", 12)
+			|| !ft_strncmp(argv[1], "Burning_ship", 12)
+			|| !ft_strncmp(argv[1], "burning ship", 12)
+			|| !ft_strncmp(argv[1], "Burning ship", 12)))
 	{
 		burning_design(argv, f);
 	}

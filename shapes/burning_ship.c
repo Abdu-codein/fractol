@@ -38,7 +38,7 @@ int	ship_cal(double coor_x, double coor_y, t_fractal *info)
 	while (info->max_iteration > i)
 	{
 		if ((zr * zr) + (zi * zi) > 4.0)
-		break ;
+			break ;
 		zr = fabs(zr);
 		zi = fabs(zi);
 		tmp = (zr * zr) - (zi * zi) + coor_x;
