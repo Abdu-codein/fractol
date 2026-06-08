@@ -6,11 +6,11 @@
 /*   By: amardini <amardini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 20:24:30 by amardini          #+#    #+#             */
-/*   Updated: 2026/06/08 04:23:47 by amardini         ###   ########.fr       */
+/*   Updated: 2026/06/08 15:19:23 by amardini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../fractol.h"
 
 void	window_create(t_fractal *info)
 {
@@ -19,11 +19,12 @@ void	window_create(t_fractal *info)
 		write (1, "MLX faced an issue while creating connection\n", 45);
 	info->win = mlx_new_window(info->mlx, DIM_Z, DIM_Y, "Fractol");
 	if (!info->win)
-		distruc_error(&info, 1, 'a');
+		distruc_error(info, 1, 'a');
 	info->img = mlx_new_image(info->mlx, DIM_Z, DIM_Y);
 	if (!info->img)
-		distruc_error(&info, 12, 'b');
-	info->addr = mlx_get_data_addr(info->mlx, &info->bpp, &info->line_len, &info->endian);
+		distruc_error(info, 12, 'b');
+	info->addr = mlx_get_data_addr(info->img, &info->bpp,
+			&info->line_len, &info->endian);
 	if (!info->addr)
-		distruc_error(&info, 123, 'c');
+		distruc_error(info, 123, 'c');
 }

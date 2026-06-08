@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../fractol.h"
+
 int	dynamic_colour(int iter, t_fractal *info)
 {
 	double	t;

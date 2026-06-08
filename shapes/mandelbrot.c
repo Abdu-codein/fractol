@@ -6,11 +6,11 @@
 /*   By: amardini <amardini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 22:56:15 by amardini          #+#    #+#             */
-/*   Updated: 2026/06/08 04:30:21 by amardini         ###   ########.fr       */
+/*   Updated: 2026/06/08 11:34:06 by amardini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../fractol.h"
 
 void	mandelbrot_design(char **argv, t_fractal *data)
 {

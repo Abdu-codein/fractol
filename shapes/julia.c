@@ -6,11 +6,11 @@
 /*   By: amardini <amardini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 22:56:11 by amardini          #+#    #+#             */
-/*   Updated: 2026/06/08 04:29:51 by amardini         ###   ########.fr       */
+/*   Updated: 2026/06/08 15:24:47 by amardini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../fractol.h"
 
 void	julia_design(char **argv, t_fractal *data)
 {
@@ -32,7 +32,7 @@ void	julia_design(char **argv, t_fractal *data)
 	data->julia_real = real;
 }
 
-int	julia_cal(double coor_x, double coor_y, double input_x, double input_y, t_fractal *info)
+int	julia_cal(double coor_x, double coor_y, t_fractal *info)
 {
 	int		i;
 	double	zr;
@@ -44,10 +44,10 @@ int	julia_cal(double coor_x, double coor_y, double input_x, double input_y, t_fr
 	i = 0;
 	while (info->max_iteration > i)
 	{
-		if ((zr * zr) - (zi * zi) > 4.0)
+		if ((zr * zr) + (zi * zi) > 4.0)
 			break ;
-		tmp = (zr * zr) - (zi * zi) + input_x;
-		zi = 2 * zr * zi + input_y;
+		tmp = (zr * zr) - (zi * zi) + info->julia_real;
+		zi = 2 * zr * zi + info->julia_imaginary;
 		zr = tmp;
 		i++;
 	}

@@ -6,11 +6,11 @@
 /*   By: amardini <amardini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 22:58:27 by amardini          #+#    #+#             */
-/*   Updated: 2026/06/08 04:33:53 by amardini         ###   ########.fr       */
+/*   Updated: 2026/06/08 12:07:41 by amardini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../fractol.h"
 
 void	m_error(void)
 {
@@ -30,9 +30,6 @@ void	nu_error(void)
 
 void	distruc_error(t_fractal *info, int errors, char issue)
 {
-	int	i;
-
-	i = 1;
 	if (errors == 123)
 		mlx_destroy_image(info->mlx, info->img);
 	if (issue == 'c')
