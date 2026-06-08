@@ -6,7 +6,7 @@
 /*   By: amardini <amardini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 21:28:48 by amardini          #+#    #+#             */
-/*   Updated: 2026/06/08 15:49:15 by amardini         ###   ########.fr       */
+/*   Updated: 2026/06/08 18:09:23 by amardini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ static int	shape_set(t_fractal *info, int x, int y)
 	double	coord_y;
 	int		iter;
 
+	iter = 0;
 	coord_x = info->min_real + (double)x / DIM_Z
 		* (info->max_real - info->min_real);
 	coord_y = info->max_imaginary - (double)y / DIM_Y

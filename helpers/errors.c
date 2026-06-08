@@ -6,7 +6,7 @@
 /*   By: amardini <amardini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 22:58:27 by amardini          #+#    #+#             */
-/*   Updated: 2026/06/08 12:07:41 by amardini         ###   ########.fr       */
+/*   Updated: 2026/06/08 21:05:07 by amardini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 void	m_error(void)
 {
 	write(1, "==Input not as required==\n", 27);
-	write(1, "For Mandelbrot, Input \"mandelbrot\"\n", 35);
+	write(1, "For Mandelbrot, Input \"mandelbrot\"\n\n", 36);
 	write(1, "For Julia, input \" \"julia\", X_pointer, Y_pointer \"", 50);
-	write(1, "input should be between -2.0 to 2.0\n", 36);
+	write(1, "Input should be between -2.0 to 2.0\n\n", 37);
+	write(1, "For Burning ship, Input \"Burning ship\"\n\n", 40);
 	exit(1);
 }
 
