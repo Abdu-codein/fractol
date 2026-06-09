@@ -1,23 +1,42 @@
 *This project has been created as part of the 42 curriculum by <*amardini*>*
 
 # FRACT_OL
-Difinition: In mathematics, a fractal is a geometric shape containing detailed structure at arbitrarily small scales, usually having a fractal dimension strictly exceeding the topological dimension. Many fractals appear similar at various scales, as illustrated in successive magnifications of the Mandelbrot set.
+Definition: In mathematics, a fractal is a geometric shape containing detailed structure at arbitrarily small scales, usually having a fractal dimension strictly exceeding the topological dimension. Many fractals appear similar at various scales, as illustrated in successive magnifications of the Mandelbrot set.
 
 In simplier words, a fractal is a shape that repeats endlessly as long as zoomed into the edges (in this project case, in two dimensional).
-
-
 
 
 ## Description:
 This version of the project was done with the bonus, including 3 versions of a fractal shape, "Mandelbrot", "Julia", and "Burning ship".
 
-### Fractal shapes:
+#### Fractal shapes:
+For this project, the base of the fractal math for all 3 shapes is `z = a + bi` where i is an imaginary number of `square root of -1`.
 
+In other words, `iterationX = z * z + y` with y being `(a^2 - b^2) + 2abi`.
+
+Using this formula, we can find out the location of plotting for each point, as long as the above calculation doesn't "explode", (aka the output of the formula doesn't go past whatever boundries we have (in this code it being 4, (-2 to 2))).
+
+#### Mandelbrot:
+Mandelbrot has the best dimensions when the Y axis is the size of 2.6 (1.3 to -1.3) with the X axis being started at -2 and ends at the size to match the size of 2.6.
+
+The mathmetical coordinations coor_x and coor_y are used to find the location on the graph for plotting the coordinate with the colour that comes from the iteration.
+
+#### Julia:
+Julia has the best dimensions when it is a perfect square (4), allowing the max and min for both imaginary and real to stay constant on -2 to 2.
+
+zr and zi are the inputs the user added to this fractal, allowing different designs to occur, while the coordinations making i set the mathmetical location on the graph to find the colour and iterations.
+
+#### Burning ship:
+Burning Ship has the same idea as Mandelbrot for dimensions, as the best size for it is also 2.6.
+
+zr and zi is set as the absolute value of themselves, allowing the design to be created. Due to the burning ship creation being upside down, `2abi` becomes `-2abi`.
+
+##### Additional information regarding all shapes:
+- A ratio is also found using the dimensions added by the user, allowing the size to look correct regardless to whatever the new inputted dimensions are. In
+
+- Coor X and Y is the mathematical graph location for that specific pixel, using the actual x/y pixel location as a base line and then finding the ratio between them, to find the exact location to plot on the graph
 
 ### Outline of how code runs
-
-### Additional information
-
 
 
 
