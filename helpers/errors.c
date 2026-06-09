@@ -6,7 +6,7 @@
 /*   By: amardini <amardini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 22:58:27 by amardini          #+#    #+#             */
-/*   Updated: 2026/06/08 21:05:07 by amardini         ###   ########.fr       */
+/*   Updated: 2026/06/09 21:28:27 by amardini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	distruc_error(t_fractal *info, int errors, char issue)
 	}
 	if (issue == 'a')
 		write(1, "Error: Window not created, try again\n", 37);
-	if (issue == 'a' || issue == 'b' || issue == 'c' || issue == 'z')
+	if (issue == 'a' || issue == 'b' || issue == 'c')
 		exit(1);
 	else
 		exit(0);

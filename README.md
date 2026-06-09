@@ -24,7 +24,7 @@ The mathmetical coordinations coor_x and coor_y are used to find the location on
 #### Julia:
 Julia has the best dimensions when it is a perfect square (4), allowing the max and min for both imaginary and real to stay constant on -2 to 2.
 
-zr and zi are the inputs the user added to this fractal, allowing different designs to occur, while the coordinations making i set the mathmetical location on the graph to find the colour and iterations.
+zr and zi are the coord_x and coord_y, while the user added to this fractal is used as the constant, allowing different designs to occur, while the coordinations making i set the mathmetical location on the graph to find the colour and iterations.
 
 #### Burning ship:
 Burning Ship has the same idea as Mandelbrot for dimensions, as the best size for it is also 2.6.
@@ -32,12 +32,44 @@ Burning Ship has the same idea as Mandelbrot for dimensions, as the best size fo
 zr and zi is set as the absolute value of themselves, allowing the design to be created. Due to the burning ship creation being upside down, `2abi` becomes `-2abi`.
 
 ##### Additional information regarding all shapes:
-- A ratio is also found using the dimensions added by the user, allowing the size to look correct regardless to whatever the new inputted dimensions are. In
+- A ratio is also found using the dimensions added by the user, allowing the size to look correct regardless to whatever the new inputted dimensions are.
 
-- Coor X and Y is the mathematical graph location for that specific pixel, using the actual x/y pixel location as a base line and then finding the ratio between them, to find the exact location to plot on the graph
+- Coor X and Y is the mathematical graph location for that specific pixel, using the actual x/y pixel location as a base line and then finding the ratio between them, to find the exact location to plot on the graph.
 
 ### Outline of how code runs
+1. The user inputs the fractol they are interested in, either 1 input (for mandelbrot and burning ship) or 3 (for julia).
 
+2. It gets checked if what is inputted matches the "required" input text(s), if it matches, the design is set as the required one with all of the information it needs for it to function.
+    - In regards to julia tho, an additional check is done for the inputted number to check if it is a valid number and can be turned into a float.
+
+3. The Minilibx is set up after, witha a fail safe at each level incase any issue occurs, freeing and cleaning anything that was set up already.
+    - Init connects to a surverm which later is used to create the window that appears to the user, afterwards a new_image is set for the pixels to "draw" on, ending with the address being set and populating information regarding the system, and the initialised window.
+
+4. Max iterations is set, and the colour effect is se for the shapes to be initialised and created.
+
+5. Create shape works pixel by pixel, by using the counters set as the dimensions as borders. Each pixel is set by first finding the iteration (setting up coord_x and coord_y (using to find the location in math then connecting it to it's position of the computer), and depending on the shape, it calls the correct fucntion to help decide if a plot is needed to be added or how far it was from the actual shape) which is then used to decide the colour and actually plot it in it's correct location on the computer grid (with the correct colour depending on what the user sets as the required).
+    - After all that is completed for all of the pixels that are set by the window dimensions, the image set will be pushed to the window to be visible to the user.
+
+6. Hooks are set next to allow mouse and keyboard inputs to be recorded and be a catalyst for an effect.
+
+7. Keyboard hooks are set up first;
+    - If `arrow keys` are pressed, the move function is called, finding the real total size (set up by the computer) then setting up how much to move when pressed, then using that to define how it moves (for example if the right key is pressed, to keep the size correctly, adding to the right side means you have to decrease form the left side too).
+    - If `+` or `-` is pressed, the max iteration amount is increased/decreased by 5
+    - If `x` or `z` is pressed, the zooming effects functions works, by finding the centre of the actual math dimensions, then using the centre, it checks for the right of it, then the left of it, and depending on the times, it finds out what it is, this allows it to correctly set the the min/max real/imaginary locations
+    - If `r`, `g`, `b`, `p` is used, then the colour is set as the code for that specific colour.
+    - If `Esc` is pressed, then the code cleans everything and exits ending the code.
+
+With all of the above, after it is pressed, the effect is applied by recreating the shape by calling the same function used previously to create the image (point 5).
+
+8. Mouse hooks are set up after;
+    - If `right click` or `left click` is pressed, then the max iteration is increased by 5.
+    - If `scroll up` or `scroll down` is used, then the zooming function is used. the main difference between this one and the keyboard version is instead of using the centre of the screen as the middle, it uses the position of the mouse as the centre "of the screen", and uses the same concept again to run.
+
+Once again, after all this, the shape is replotted (concept of point 5).
+
+9. A hook is added to check for if the X button on the top right of the screen is pressed, allowing a safe exit from the project.
+
+10. Finally, mlx_loop is called, allowing for the system to "listen" to user inputs, and call the correct function from the above hooks to work and give out their response.
 
 
 ## Instructions:
@@ -104,45 +136,3 @@ chmod -R +x minilibx-linux
 - MiniLibx Concepts
     - Lib introduction and basics ([42 Docs](https://harm-smits.github.io/42docs/libs/minilibx/introduction.html))
     - specific events and hooks ([Tronche](https://tronche.com/gui/x/xlib/events/))
-
-when plotting the real and fake
-due to the size of the window not the same as the shape to be created
-math width = max real - min real == max im - min im
-
-mand lives on -2 to 0.5 on width naturally
-just to have breathing spae, the width of box will be equal to 
-0.6 - (-2) = 2.6
-to match the height
-mandelbrot is equal on both sides heights wise so half that number
-1.3 and -1.3
-
-ASPECT RATIO is equal to width / height
-
-MANDEL looks best with 1.3 to -1.3 height (2.6).
-real width = height total - aspect ratio 
-now to set up, x.imag is always equal to -2
-so -2 * the real width is = to the x.real
-
-JULIA looks best with height -2 to 2 (4)
-usign that
-real width = height total - aspect ratio
-because juia always stays centered, we divide the real width by 2
-
-
-
-hoxking works by waiting for an input from the user in the back, there are 3 hooks (that are used)
-
-keyboard;
-int handle_key (int keycode, void *param)
-
-(to be called we do), mlx_key_hook(data.win_ptr, handle_key, &data)
-
-mouse;
-int handle_mouse(int button, int x, int y, void *param);
-
-(to be called we do), mlx_mouse_hook(data.win_ptr, handle_mouse, &data)
-
-X button;
-int handle_close(void*param);
-
-(to be called we do), mlx_hook(data.win_ptr, 17, 0, handle_close, &data)

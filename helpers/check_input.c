@@ -6,7 +6,7 @@
 /*   By: amardini <amardini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 23:16:15 by amardini          #+#    #+#             */
-/*   Updated: 2026/06/08 16:12:17 by amardini         ###   ########.fr       */
+/*   Updated: 2026/06/09 21:35:02 by amardini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,22 +59,22 @@ static int	ft_is_double(char *s)
 
 void	user_input(int argc, char **argv, t_fractal *f)
 {
-	if (argc == 2 && (!ft_strncmp(argv[1], "mandelbrot", 10)
-			|| !ft_strncmp(argv[1], "Mandelbrot", 10)))
+	if (argc == 2 && (!ft_strncmp(argv[1], "mandelbrot", 11)
+			|| !ft_strncmp(argv[1], "Mandelbrot", 11)))
 	{
 		mandelbrot_design(argv, f);
 	}
-	else if ((argc == 4 && (!ft_strncmp(argv[1], "julia", 5)
-				|| !ft_strncmp(argv[1], "Julia", 5))))
+	else if ((argc == 4 && (!ft_strncmp(argv[1], "julia", 6)
+				|| !ft_strncmp(argv[1], "Julia", 6))))
 	{
 		if (ft_is_double(argv[2]) == 0 || ft_is_double(argv[3]) == 0)
 			m_error();
 		julia_design(argv, f);
 	}
-	else if (argc == 2 && (!ft_strncmp(argv[1], "burning_ship", 12)
-			|| !ft_strncmp(argv[1], "Burning_ship", 12)
-			|| !ft_strncmp(argv[1], "burning ship", 12)
-			|| !ft_strncmp(argv[1], "Burning ship", 12)))
+	else if (argc == 2 && (!ft_strncmp(argv[1], "burning_ship", 13)
+			|| !ft_strncmp(argv[1], "Burning_ship", 13)
+			|| !ft_strncmp(argv[1], "burning ship", 13)
+			|| !ft_strncmp(argv[1], "Burning ship", 13)))
 	{
 		burning_design(argv, f);
 	}
